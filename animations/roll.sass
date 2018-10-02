@@ -1,0 +1,40 @@
+
+// Roll
+// ----
+
+// ### Roll In
+
+@mixin roll-in($vendor: '')
+    0%
+        opacity: 0
+        #{$vendor}transform: translateX(-100%) rotate(-120deg)
+    100%
+        opacity: 1
+        #{$vendor}transform: translateX(0px) rotate(0deg)
+
+@keyframes roll-in
+    +roll-in()
+@-webkit-keyframes roll-in
+    +roll-in(-webkit-)
+
+.roll-in
+    +animation-name(roll-in)
+
+
+// ### Roll Out
+
+@mixin roll-out($vendor: '')
+    0%
+        opacity: 1
+        #{$vendor}transform: translateX(0px) rotate(0deg)
+    100%
+        opacity: 0
+        #{$vendor}transform: translateX(100%) rotate(120deg)
+
+@keyframes roll-out
+    +roll-out()
+@-webkit-keyframes roll-out
+    +roll-out(-webkit-)
+
+.roll-out
+    +animation-name(roll-out)
